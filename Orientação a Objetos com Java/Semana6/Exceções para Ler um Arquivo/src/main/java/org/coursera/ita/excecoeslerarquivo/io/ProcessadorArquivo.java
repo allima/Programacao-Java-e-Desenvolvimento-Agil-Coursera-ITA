@@ -6,13 +6,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import javax.swing.SingleSelectionModel;
-
 import org.coursera.ita.excecoeslerarquivo.io.exception.LeituraArquivoException;
 
 public class ProcessadorArquivo {
 
-	public static Map<String, String> processar(String nomeArquivo) throws LeituraArquivoException {
+	public static Map<String, String> processar(String nomeArquivo)  {
 		Map<String, String> mapa = null;
 
 		try {
