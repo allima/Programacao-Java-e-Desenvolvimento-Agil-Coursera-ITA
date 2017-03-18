@@ -1,4 +1,4 @@
-package org.coursera.ita.excecoeslerarquivo;
+package org.coursera.ita.excecoeslerarquivo.io.exception;
 
 public class LeituraArquivoException extends Exception {
 
