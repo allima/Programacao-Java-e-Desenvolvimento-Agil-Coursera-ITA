@@ -1,9 +1,9 @@
 package org.coursera.ita.palavras.embaralhadas.embaralhador;
 
-public class Ivertertida implements Embaralhador {
+public class EmbaralhadorLetraParPorImpar implements Embaralhador {
 
 	@Override
-	public String emparalha(String palavra) {
+	public String getPalavraEmparalha(String palavra) {
 		// TODO Auto-generated method stub
 		return null;
 	}

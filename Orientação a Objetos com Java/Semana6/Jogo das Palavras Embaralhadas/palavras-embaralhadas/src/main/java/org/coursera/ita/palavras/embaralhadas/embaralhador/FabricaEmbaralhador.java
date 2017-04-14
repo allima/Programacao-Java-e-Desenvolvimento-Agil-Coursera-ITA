@@ -4,18 +4,31 @@ import java.util.Random;
 
 public class FabricaEmbaralhador {
 
-	public Embaralhador getMecanicaDoJogoHandom() {
+	public Embaralhador getEmbaralhadorHandom() {
 
 		Random gerador = new Random();
 
 		int tipo = gerador.nextInt(3) + 1;
 
 		if (TipoEmbaralhador.INVERTIDA.tipo == tipo) {
-			return new Ivertertida();
+			return new EmbaralhadorPalavraIvertertida();
 		} else if (TipoEmbaralhador.TROCA_LETRA_VOGAL_CONSOANTE.tipo == tipo) {
-			return new TrocadaLetraVogalPorConsoante();
+			return new EmbaralhadorLetraVogalPorConsoante();
 		} else if (TipoEmbaralhador.TROCA_LETRA_PAR_IMPAR.tipo == tipo) {
-			return new TrocaLetraParPorImpar();
+			return new EmbaralhadorLetraParPorImpar();
+		}
+		return null;
+
+	}
+
+	public Embaralhador getEmbaralhadorPorTipo(TipoEmbaralhador tipo) {
+
+		if (TipoEmbaralhador.INVERTIDA == tipo) {
+			return new EmbaralhadorPalavraIvertertida();
+		} else if (TipoEmbaralhador.TROCA_LETRA_VOGAL_CONSOANTE == tipo) {
+			return new EmbaralhadorLetraVogalPorConsoante();
+		} else if (TipoEmbaralhador.TROCA_LETRA_PAR_IMPAR == tipo) {
+			return new EmbaralhadorLetraParPorImpar();
 		}
 		return null;
 

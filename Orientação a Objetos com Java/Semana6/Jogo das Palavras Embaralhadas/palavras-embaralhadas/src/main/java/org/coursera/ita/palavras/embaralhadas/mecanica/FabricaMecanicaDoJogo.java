@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class FabricaMecanicaDoJogo {
 
-	public MecanicaDoJogo getEmbaralhadorHandom() {
+	public MecanicaDoJogo getMecanicaDoJogoHandom() {
 
 		Random gerador = new Random();
 
