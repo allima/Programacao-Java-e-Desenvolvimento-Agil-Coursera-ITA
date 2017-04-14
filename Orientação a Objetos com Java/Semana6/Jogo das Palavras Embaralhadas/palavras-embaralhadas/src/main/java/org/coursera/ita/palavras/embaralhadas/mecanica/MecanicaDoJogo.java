@@ -1,5 +1,7 @@
 package org.coursera.ita.palavras.embaralhadas.mecanica;
 
-public class MecanicaDoJogo {
+public interface MecanicaDoJogo {
 
+	boolean isCorreta();
+	boolean finDeJogo();
 }
