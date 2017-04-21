@@ -8,12 +8,10 @@ public class FabricaEmbaralhador {
 
 		Random gerador = new Random();
 
-		int tipo = gerador.nextInt(3) + 1;
+		int tipo = gerador.nextInt(2) + 1;
 
 		if (TipoEmbaralhador.INVERTIDA.tipo == tipo) {
 			return new EmbaralhadorPalavraIvertertida();
-		} else if (TipoEmbaralhador.TROCA_LETRA_VOGAL_CONSOANTE.tipo == tipo) {
-			return new EmbaralhadorLetraVogalPorConsoante();
 		} else if (TipoEmbaralhador.TROCA_LETRA_PAR_IMPAR.tipo == tipo) {
 			return new EmbaralhadorLetraParPorImpar();
 		}
@@ -25,8 +23,6 @@ public class FabricaEmbaralhador {
 
 		if (TipoEmbaralhador.INVERTIDA == tipo) {
 			return new EmbaralhadorPalavraIvertertida();
-		} else if (TipoEmbaralhador.TROCA_LETRA_VOGAL_CONSOANTE == tipo) {
-			return new EmbaralhadorLetraVogalPorConsoante();
 		} else if (TipoEmbaralhador.TROCA_LETRA_PAR_IMPAR == tipo) {
 			return new EmbaralhadorLetraParPorImpar();
 		}
