@@ -3,31 +3,39 @@ package org.coursera.ita.palavras.embaralhadas.mecanica;
 import org.coursera.ita.palavras.embaralhadas.embaralhador.Embaralhador;
 import org.coursera.ita.palavras.embaralhadas.embaralhador.FabricaEmbaralhador;
 
-public class MecanicaDoJogoMorteSubita implements MecanicaDoJogo {
+public class MecanicaDoJogoTresTentativasPorPalavras implements MecanicaDoJogo {
 
 	private int pontos;
-	private int quantidadeDeErros;
-	private static final int MAXIXO_DE_ERROS_PERMITIDOS = 6;
+	private int quatidadeDeErros;
+	private int quatidadeTentativas;
+	private static final int MAXIXO_DE_TENTATIVAS_PERMITIDAS = 3;
+	private static final int MAXIXO_DE_ERROS_PERMITIDOS = 2;
 	private Embaralhador embaralhador;
-	FabricaEmbaralhador fabricaEmbaralhadores = new FabricaEmbaralhador();
+	FabricaEmbaralhador fabricaEmbaralhador = new FabricaEmbaralhador();
 
-	public MecanicaDoJogoMorteSubita() {
-		this.embaralhador = fabricaEmbaralhadores.getEmbaralhadorAleatorio();
+	public MecanicaDoJogoTresTentativasPorPalavras() {
+		this.embaralhador = fabricaEmbaralhador.getEmbaralhadorAleatorio();
 	}
 
 	@Override
 	public boolean isAcabou() {
-		return quantidadeDeErros > MAXIXO_DE_ERROS_PERMITIDOS;
+		return quatidadeDeErros > MAXIXO_DE_ERROS_PERMITIDOS;
+
 	}
 
 	@Override
 	public boolean isAcertou(String palavra, String palavraDoUsuario) {
-		if (palavra.equalsIgnoreCase(palavraDoUsuario)) {
+		if (palavra.trim().equalsIgnoreCase(palavraDoUsuario.trim())) {
 			this.computarPontos(palavraDoUsuario);
+			this.quatidadeTentativas = 0;
 			return true;
 		}
-		quantidadeDeErros++;
+		if (tentarNovamente()) {
+			quatidadeTentativas++;
+			return false;
+		}
 		return false;
+
 	}
 
 	@Override
@@ -52,7 +60,12 @@ public class MecanicaDoJogoMorteSubita implements MecanicaDoJogo {
 
 	@Override
 	public boolean tentarNovamente() {
-		return false;
-	}
+		if (quatidadeTentativas == MAXIXO_DE_TENTATIVAS_PERMITIDAS) {
+			quatidadeDeErros++;
+			quatidadeTentativas = 0;
+			return false;
+		}
+		return true;
 
+	}
 }

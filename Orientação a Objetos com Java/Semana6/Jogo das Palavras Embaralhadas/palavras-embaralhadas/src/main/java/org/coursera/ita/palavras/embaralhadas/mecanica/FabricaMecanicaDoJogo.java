@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class FabricaMecanicaDoJogo {
 
-	public MecanicaDoJogo getMecanicaDoJogoHandom() {
+	public static MecanicaDoJogo getMecanicaAleatoria() {
 
 		Random gerador = new Random();
 
@@ -12,12 +12,13 @@ public class FabricaMecanicaDoJogo {
 
 		if (TipoMecanicaDoJogo.MORTE_SUBITA.getTipo() == tipo) {
 			return new MecanicaDoJogoMorteSubita();
-		} else if (TipoMecanicaDoJogo.POR_VIDAS.getTipo() == tipo) {
-			return new MecanicaDoJogoPorVidas();
+		} else if (TipoMecanicaDoJogo.SEM_LIMITES.getTipo() == tipo) {
+			return new MecanicaDoJogoSemLimites();
 		} else if (TipoMecanicaDoJogo.TENTATIVAS_POR_PALAVRAS.getTipo() == tipo) {
-			return new MecanicaDoJogoTentativasPorPalavras();
+			return new MecanicaDoJogoTresTentativasPorPalavras();
 		}
 		return null;
 
 	}
+
 }

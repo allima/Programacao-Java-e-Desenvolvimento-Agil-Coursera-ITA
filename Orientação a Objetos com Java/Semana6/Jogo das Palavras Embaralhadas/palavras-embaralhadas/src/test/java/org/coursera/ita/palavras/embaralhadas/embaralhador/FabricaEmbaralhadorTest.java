@@ -30,7 +30,7 @@ public class FabricaEmbaralhadorTest {
 
 	@Test
 	public void testGetEmbaralhadorHandom() {
-		Embaralhador em = fabricaEmbaralhador.getEmbaralhadorHandom();
+		Embaralhador em = fabricaEmbaralhador.getEmbaralhadorAleatorio();
 		assertThat(em, instanceOf(Embaralhador.class));
 	}
 

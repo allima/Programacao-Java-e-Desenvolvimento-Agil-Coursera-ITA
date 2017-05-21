@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class FabricaEmbaralhador {
 
-	public Embaralhador getEmbaralhadorHandom() {
+	public Embaralhador getEmbaralhadorAleatorio() {
 
 		Random gerador = new Random();
 
