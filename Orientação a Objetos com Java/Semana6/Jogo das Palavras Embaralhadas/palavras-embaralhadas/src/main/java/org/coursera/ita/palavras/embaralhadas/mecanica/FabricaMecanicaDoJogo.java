@@ -10,11 +10,11 @@ public class FabricaMecanicaDoJogo {
 
 		int tipo = gerador.nextInt(4) + 1;
 
-		if (TipoMecanicaDoJogo.MORTE_SUBITA.tipo == tipo) {
+		if (TipoMecanicaDoJogo.MORTE_SUBITA.getTipo() == tipo) {
 			return new MecanicaDoJogoMorteSubita();
-		} else if (TipoMecanicaDoJogo.POR_VIDAS.tipo == tipo) {
+		} else if (TipoMecanicaDoJogo.POR_VIDAS.getTipo() == tipo) {
 			return new MecanicaDoJogoPorVidas();
-		} else if (TipoMecanicaDoJogo.TENTATIVAS_POR_PALAVRAS.tipo == tipo) {
+		} else if (TipoMecanicaDoJogo.TENTATIVAS_POR_PALAVRAS.getTipo() == tipo) {
 			return new MecanicaDoJogoTentativasPorPalavras();
 		}
 		return null;
