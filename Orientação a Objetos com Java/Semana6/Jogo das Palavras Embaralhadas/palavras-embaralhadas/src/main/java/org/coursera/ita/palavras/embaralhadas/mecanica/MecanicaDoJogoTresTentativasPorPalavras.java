@@ -68,4 +68,16 @@ public class MecanicaDoJogoTresTentativasPorPalavras implements MecanicaDoJogo {
 		return true;
 
 	}
+
+	@Override
+	public String getNome() {
+		
+		return "Mecanica do Jogo: Tres Tentativas por Palavra com tres erro 2 permitidos";
+	}
+
+	@Override
+	public String getDescricao() {
+		
+		return "Você tem Três tentativa por Palavra com erro 2 permitidos";
+	}
 }

@@ -15,4 +15,8 @@ public interface MecanicaDoJogo {
 	public int getPontos();
 
 	public int getQuantidadeMaximaDeErros();
+
+	public String getNome();
+
+	public String getDescricao();
 }

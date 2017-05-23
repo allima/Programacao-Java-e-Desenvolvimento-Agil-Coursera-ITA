@@ -7,7 +7,7 @@ public class MecanicaDoJogoMorteSubita implements MecanicaDoJogo {
 
 	private int pontos;
 	private int quantidadeDeErros;
-	private static final int MAXIXO_DE_ERROS_PERMITIDOS = 6;
+	private static final int MAXIXO_DE_ERROS_PERMITIDOS = 1;
 	private Embaralhador embaralhador;
 	FabricaEmbaralhador fabricaEmbaralhadores = new FabricaEmbaralhador();
 
@@ -53,6 +53,18 @@ public class MecanicaDoJogoMorteSubita implements MecanicaDoJogo {
 	@Override
 	public boolean tentarNovamente() {
 		return false;
+	}
+
+	@Override
+	public String getNome() {
+
+		return "Mecanica do Jogo: Morte Subita";
+	}
+
+	@Override
+	public String getDescricao() {
+
+		return "Errou perdeu";
 	}
 
 }

@@ -67,4 +67,16 @@ public class MecanicaDoJogoSemLimites implements MecanicaDoJogo {
 		return true;
 
 	}
+
+	@Override
+	public String getNome() {
+
+		return "Mecanica do Jogo: Sem Limites";
+	}
+
+	@Override
+	public String getDescricao() {
+
+		return "Só acaba quando as palavras terminarem";
+	}
 }

@@ -8,27 +8,26 @@ import org.coursera.ita.palavras.embaralhadas.mecanica.FabricaMecanicaDoJogo;
 import org.coursera.ita.palavras.embaralhadas.mecanica.MecanicaDoJogo;
 
 public class Principal {
+	static BancoDePalavras bancoDePalavras;
 
 	public static void main(String[] args) throws IOException {
 
-		System.out.println(
-				"BEM VINDO AO PALAVRAS EMBARALHADAS, VAMOS VER SE VOCÊ É BOM EM DESCOBRIR AS PALAVRAS CORRETAS");
+		System.out.println("Jogo da Forca");
 
 		Scanner scan = new Scanner(System.in);
 
 		MecanicaDoJogo mecanica = FabricaMecanicaDoJogo.getMecanicaAleatoria();
 
-		BancoDePalavras bancoDePalavras = new BancoDePalavras();
+		bancoDePalavras = new BancoDePalavras();
 
 		while (!mecanica.isAcabou()) {
-
+			System.out.println(mecanica.getNome());
+			System.out.println(mecanica.getDescricao());
 			String palavra = bancoDePalavras.getPalavrasDoArquivo();
-			/*
-			 * se a palavra gerada for null, significa que terminou todas as
-			 * palavras do arquivo e o jogo acabou
-			 */
+
 			if (palavra != null) {
 				String palavraEmbaralhada = mecanica.novaPalavraEmbaralhada(palavra);
+
 				System.out.println("Tente acertar, a palavra é... " + "'" + palavraEmbaralhada + "'");
 				System.out.print("digite a palavra corretamente: ");
 				String palavraDoUsuario = scan.nextLine();
@@ -47,7 +46,7 @@ public class Principal {
 						}
 					}
 					if (!mecanica.tentarNovamente()) {
-						System.out.println("XIIII, você errou");
+						System.out.println("você errou");
 					}
 
 				}
@@ -58,8 +57,7 @@ public class Principal {
 			}
 		}
 
-		System.out.println(
-				"XIIIII, você errou mais de " + mecanica.getQuantidadeMaximaDeErros() + " vezes, Fim de Jogo :( ");
+		System.out.println("você errou mais de " + mecanica.getQuantidadeMaximaDeErros() + " vezes, Fim de Jogo :( ");
 
 	}
 
